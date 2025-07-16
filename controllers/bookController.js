@@ -160,31 +160,31 @@ exports.paymentController = async (req, res) => {
 
     try {
 
-        // const existingBook = await books.findByIdAndUpdate({ _id: bookDetails._id }, {
-        //     title: bookDetails.title,
-        //     author: bookDetails.author,
-        //     publisher: bookDetails.publisher,
-        //     language: bookDetails.language,
-        //     noofpages: bookDetails.noofpages,
-        //     isbn: bookDetails.isbn,
-        //     imageurl: bookDetails.imageurl,
-        //     category: bookDetails.category,
-        //     price: bookDetails.price,
-        //     dprice: bookDetails.dprice,
-        //     abstract: bookDetails.abstract,
-        //     uploadimage: bookDetails.uploadimage,
-        //     userMail: bookDetails.userMail,
-        //     status: 'sold',
-        //     BroughtBy: userEmail
+        const existingBook = await books.findByIdAndUpdate({ _id: bookDetails._id }, {
+            title: bookDetails.title,
+            author: bookDetails.author,
+            publisher: bookDetails.publisher,
+            language: bookDetails.language,
+            noofpages: bookDetails.noofpages,
+            isbn: bookDetails.isbn,
+            imageurl: bookDetails.imageurl,
+            category: bookDetails.category,
+            price: bookDetails.price,
+            dprice: bookDetails.dprice,
+            abstract: bookDetails.abstract,
+            uploadimage: bookDetails.uploadimage,
+            userMail: bookDetails.userMail,
+            status: 'sold',
+            BroughtBy: userEmail
 
 
-        // }, { new: true })
+        }, { new: true })
 
-        // console.log(existingBook);
+        console.log(existingBook);
 
 
 
-        //setup line  items
+        // setup line  items
        
        
         const line_item = [{
@@ -232,8 +232,12 @@ exports.paymentController = async (req, res) => {
             mode: 'payment',
 
             // navigate after payment
-            success_url: 'http://localhost:5173/payment-success',
-            cancel_url: 'http://localhost:5173/payment-error'
+
+            success_url: 'https://bookstore-frontend-shifa.vercel.app/payment-success',
+
+            // cancel_url: 'http://localhost:5173/payment-error'
+            
+            cancel_url:'https://bookstore-frontend-shifa.vercel.app/payment-error'
 
         })
 
